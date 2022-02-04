@@ -8,11 +8,16 @@ direction = ''
 def encrypt(plain_text, shift_amt):
     encr_text = ""
     for letter in plain_text:
+        #if the plain text in a specific location contains a space,
+        #just add space and continue with the next iteration
+        if plain_text[letter] == " ":
+            encr_text += letter
+            continue
 
         position = alphabet.index(letter)
         new_position = ""
 
-        # prevent out of range index
+        # prevent out of range index by checking beforehand the operation that will be assigned to the new_position var
         if not (position + shift_amt > len(alphabet)):
             new_position = position + shift_amt
         else:
@@ -24,6 +29,12 @@ def encrypt(plain_text, shift_amt):
 def decrypt(plain_text, shift_amt):
     dencr_text = ""
     for letter in plain_text:
+        # if the plain text in a specific location contains a space,
+        # just add space and continue with the next iteration
+        if plain_text[letter] == " ":
+            encr_text += letter
+            continue
+
         position = alphabet.index(letter)
         new_position = ""
 
